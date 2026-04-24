@@ -1,5 +1,5 @@
 // 1. IMPORTACIONES
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; //trae las herramientas de los servicios de google. initializeApp crea la conexion
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; //importa la función initializeApp desde el archivo de Firebase para poder usarla en este código
 
 import {
     getFirestore,
@@ -32,7 +32,7 @@ const db = getFirestore(app); //activa la base de datos y la guarda en la variab
 //4. resto del codigo (curd)
 let datos = []; //crea un arreglo de nombre datos 
 
-window.agregar =  async function () { //window es la ventana del navegador
+window.agregar =  async function () { //window es la ventana del navegador y es un objeto global
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
 
@@ -89,7 +89,7 @@ function mostrar(lista) { //declara una funcion de nombre mostrar y tiene como p
 
 window.eliminar = async function (id) { //hacemos que la funcion de eliminar sea global y es asincrona que recibe el id del producto que se quiere borrar
     await deleteDoc(doc(db,"productos", id)); //pausa la ejecucion hasta que se confirme que el producto ha sido borrado
-    leer(); //actualiza la lista con la funcion de 
+    leer(); //actualiza la lista con la funcion de leer
 };
 
 window.editar = async function (id) { //hace que la funcion de editar sea global y es asincrona y como parametro recibe el id del producto que se quiere editar
@@ -116,4 +116,4 @@ window.filtrar = function (){ //hace que la funcion filter sea global y no tiene
     mostrar(filtrados);//muestra la nueva lista a la funcion de mostrar para que la muestre en la pantalla
 };
 
-leer(); //en cuanto termina de ejecutar el archivo va a firebase y trae los productos y los muestra de inmediato
+leer(); //en cuanto termina de ejecutar el archivo va a firebase, trae los productos y los muestra de inmediato
