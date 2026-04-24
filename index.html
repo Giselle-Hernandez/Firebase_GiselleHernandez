@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>CRUD Firebase</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
+<!DOCTYPE html> <!--define el tipo de documento html -->
+<html lang="es"> <!--idioma español -->
+    <head> <!--encabezado -->
+        <meta charset="UTF-8"> <!--para que acepte caracteres especiales -->
+        <title>CRUD Firebase</title> <!--titulo de la pestaña -->
+        <link rel="stylesheet" href="styles.css"> <!--conexion con los estilos -->
+    </head><!--cierre de encabezado -->
+    <body><!--abre el cuerpo -->
         
-        <h1>CRUD de Productos</h1>
+        <h1>CRUD de Productos</h1> <!--titulo de la pagina -->
         
-        <div class="formulario">
-            <input type="text" id="nombre" placeholder="Nombre del producto">
+        <div class="formulario"><!--Crea un contenedor y le asigna la clase formulario -->
+            <input type="text" id="nombre" placeholder="Nombre del producto"> <!--crea un espacio de entrada para que el usuario escriba el nombre-->
             <input type="number" id="precio" placeholder="Precio">
-            <button onclick="agregar()">Agregar</button>
-        </div>
+            <button onclick="agregar()">Agregar</button> <!--es el boton que al hacer clic ejecuta la funcion de agregar-->
+        </div><!--cierra el div-->
 
-        <br>
+        <br> <!--salto de linea-->
 
-        <input type="text" id="buscar" placeholder="Buscar..." onkeyup="filtrar()">
+        <input type="text" id="buscar" placeholder="Buscar..." onkeyup="filtrar()"> <!--es un buscador y cada que se suelta una tecla se ejecuta la funcion filtrar-->
         
         <br><br>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
+        <table> <!--define la tabla de los productos guardados en firebase-->
+            <thead><!--encabezado de la tabla-->
+                <tr> <!--fila de la tabla-->
+                    <th>Nombre</th><!--celda de encabezado-->
                     <th>Precio</th>
                     <th>Acciones</th>
                 </tr>
@@ -32,7 +32,7 @@
             <tbody id="tabla"></tbody>
         </table>
 
-        <script src="app.js" type="module"></script>
+        <script src="app.js" type="module"></script><!--carga el archivo de js el module es para usar import para tener las funciones de la base de datos dentro de app.js-->
     
     </body>
 </html>

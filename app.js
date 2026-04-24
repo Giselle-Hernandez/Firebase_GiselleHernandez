@@ -1,5 +1,5 @@
 // 1. IMPORTACIONES
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; //trae las herramientas de los servicios de google. initializeApp crea la conexion
 
 import {
     getFirestore,
@@ -12,9 +12,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 
-// 2. COHIGURACION DE FIAEBASEC* AoUf VA LD OE COr
+// 2. Este es el codigo que copiamos tal cual de firebase
 
-const firebaseConfig = {
+const firebaseConfig = { 
   apiKey: "AIzaSyDYY_V3IaDz9Jd0lCpVEMdZkW-Y1Q4f8MQ",
   authDomain: "crud-firebase-app-e6bd1.firebaseapp.com",
   projectId: "crud-firebase-app-e6bd1",
@@ -25,36 +25,36 @@ const firebaseConfig = {
 
 
 // 3. Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = initializeApp(firebaseConfig); //Inicializa la app de Firebase usando una configuración específica.
+const db = getFirestore(app); //activa la base de datos y la guarda en la variable db
 
 
 //4. resto del codigo (curd)
-let datos = [];
+let datos = []; //crea un arreglo de nombre datos 
 
-window.agregar =  async function () {
+window.agregar =  async function () { //window es la ventana del navegador
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
 
     if (nombre === "" || precio === "") {
         alert("Completa todos los campos");
         return;
-    }
+    } //verifica que los campos no esten vacios 
    
     await addDoc(collection(db, "productos"), {
         nombre,
         precio
-    });
+    }); //a firebase ve a la colección llamada productos y guarda este objeto con nombre y precio
    
-    alert("Producto agregado");
+    alert("Producto agregado"); //envia un alert (los cuadritos pequeños)
     
-    document.getElementById("nombre").value = "";
+    document.getElementById("nombre").value = ""; //obtiene lo que el usuario ingreso
     document.getElementById("precio").value = "";
     
-    leer();
+    leer(); //despues de guardar llama a la funcion para actualizar lo que hay en pantalla
 };
 
-async function leer() {
+async function leer() { 
     datos = [];
 
     const querysnapshot  = await getDocs(collection(db, "productos"));
